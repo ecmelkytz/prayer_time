@@ -13,21 +13,53 @@ module PrayerTime
     end
 
     def get_cities(country)
-      response = RestClient.get(@cities_url + $countries.key(country))
-      JSON.parse(response)
+      begin
+        if $countries.key(country)
+          response = RestClient.get(@cities_url + $countries.key(country))
+          JSON.parse(response)
+        else
+          return nil
+        end
+      rescue RestClient::ExceptionWithResponse => err
+        err.response
+      end
     end
 
     def get_towns(country, city)
-      city_id = get_cities(country).select{|c| c if c["Text"] == city}.first["Value"]
-      response = RestClient.get(@towns_url + city_id)
-      JSON.parse(response)
+      begin
+        if get_cities(country)
+          if get_cities(country).select{|c| c if c["Text"] == city} != []
+            city_id = get_cities(country).select{|c| c if c["Text"] == city}.first["Value"]
+            response = RestClient.get(@towns_url + city_id)
+            JSON.parse(response)
+          else
+            return nil
+          end
+        else
+         return nil
+        end
+      rescue RestClient::ExceptionWithResponse => err
+        err.response
+      end
     end
 
     def pray_times(country, city, town)
-      city_id = get_cities(country).select{|c| c if c["Text"] == city}.first["Value"]
-      town_id = get_towns(country, city).select{|t| t if t["Text"] == town}.first["Value"]
-      response = RestClient.post(@time_url, :countryName => $countries.key(country), :stateName => city_id, :name => town_id)
-      JSON.parse(response)
+      begin
+        if !get_towns(country, city).nil?
+          city_id = get_cities(country).select{|c| c if c["Text"] == city}.first["Value"]
+          if get_towns(country, city).select{|t| t if t["Text"] == town} != []
+            town_id = get_towns(country, city).select{|t| t if t["Text"] == town}.first["Value"]
+            response = RestClient.post(@time_url, :countryName => $countries.key(country), :stateName => city_id, :name => town_id)
+            JSON.parse(response)
+          else
+            return nil
+          end
+        else
+          return nil
+        end
+      rescue RestClient::ExceptionWithResponse => err
+        err.response
+      end
     end
   end
 end
