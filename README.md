@@ -77,7 +77,13 @@ PrayerTime.times("BOSNA HERSEK", "SREBRENICA" , "")
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/ecmelkytz/prayer_time. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ecmelkytz/convert_temperature.
+
+1. Fork it
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -a -m 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create a new Pull Request
 
 
 ## License
