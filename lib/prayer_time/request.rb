@@ -51,6 +51,9 @@ module PrayerTime
             town_id = get_towns(country, city).select{|t| t if t["Text"] == town}.first["Value"]
             response = RestClient.post(@time_url, :countryName => $countries.key(country), :stateName => city_id, :name => town_id)
             JSON.parse(response)
+          elsif get_towns(country, city).select{|t| t if t["Text"] == town} == []
+            response = RestClient.post(@time_url, :countryName => $countries.key(country), :name => city_id)
+            JSON.parse(response)
           else
             return nil
           end
