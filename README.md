@@ -77,7 +77,7 @@ PrayerTime.times("BOSNA HERSEK", "SREBRENICA" , "")
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/ecmelkytz/convert_temperature.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ecmelkytz/prayer_time
 
 1. Fork it
 2. Create your feature branch (git checkout -b my-new-feature)
