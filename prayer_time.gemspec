@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "This gem obtains to praying times from Presidency of Religious Affairs"
   spec.description   = "This gem obtains to praying times from Presidency of Religious Affairs"
-  spec.homepage      = "https://github.com/ecmelkytz/prayer-times"
+  spec.homepage      = "https://github.com/ecmelkytz/prayer_time"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
