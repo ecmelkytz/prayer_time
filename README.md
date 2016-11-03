@@ -21,6 +21,13 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
+PrayerTime.countries
+# {"2"=>"TURKIYE",
+# "33"=>"ABD",
+# "166"=>"AFGANISTAN",
+# "13"=>"ALMANYA",
+# ...
+
 PrayerTime.cities("TURKIYE")
 # => [{"Disabled"=>false, "Group"=>nil, "Selected"=>false, "Text"=>"ADANA", "Value"=>"500"},
 # {"Disabled"=>false, "Group"=>nil, "Selected"=>false, "Text"=>"ADIYAMAN", "Value"=>"501"},
@@ -56,15 +63,11 @@ PrayerTime.times("TURKIYE", "SAMSUN", "19 MAYIS")
 ```
 If the country hasn't  any town, something like this:
 ```ruby
-PrayerTime.cities("BOSNA HERSEK")
-# =>{"Disabled"=>false, "Group"=>nil, "Selected"=>false, "Text"=>"SARAYBOSNA(sarajevo)", "Value"=>"12029"},
-# {"Disabled"=>false, "Group"=>nil, "Selected"=>false, "Text"=>"SREBRENICA", "Value"=>"12003"},
-# ...
 
 PrayerTime.towns("BOSNA HERSEK", "SREBRENICA")
 # => [ ] // hasn't any town
 
-PrayerTime.times("BOSNA HERSEK", "SREBRENICA" , "")
+PrayerTime.times("BOSNA HERSEK", "SREBRENICA")
 # => {"Imsak"=>"03:11",
 # "Gunes"=>"05:18",
 # "Ogle"=>"12:56",
